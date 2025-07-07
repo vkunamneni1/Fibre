@@ -1,4 +1,4 @@
-# Fibre - Scraper for current and upcoming albums
+# Fibre - web scraper for current and upcoming albums
 
 A Python based web scraper for extracting album data from albumoftheyear.org, which collects both currently released albums and upcoming (soon to be released) albums.
 
