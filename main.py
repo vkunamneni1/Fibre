@@ -46,9 +46,9 @@ while True:
         response = requests.get(pageurl, headers=useragent)
         response.raise_for_status()
         pagesoup = BeautifulSoup(response.text, "html.parser")
-    except requests.RequestException as requesterror:
-        logger.error(requesterror)
-        print(requesterror)
+    except requests.RequestException as e:
+        logger.error(e)
+        print(e)
         pagesoup = None
     
     if not pagesoup:
@@ -139,10 +139,10 @@ while True:
                 "image": imageurl
             }
             albumsfromthispage.append(albuminfo)
-        except Exception as error:
+        except Exception as e:
             ## remmebr to add logger
-            logger.error(error)
-            print(error)
+            logger.error(e)
+            print(e)
     
     allalbums.extend(albumsfromthispage)
     logger.info(f"Found {len(albumsfromthispage)} albums on page {currentpage}")
@@ -163,9 +163,9 @@ try:
     
     logger.info("data saved to kaggle/data/ directory")
     print("data saved to kaggle/data/directory")
-except Exception as saveerror:
-    logger.error(saveerror)
-    print(saveerror)
+except Exception as e:
+    logger.error(e)
+    print(e)
 
 
 
@@ -192,9 +192,9 @@ while currentpage <= 50:
         response = requests.get(pageurl, headers=useragent)
         response.raise_for_status()
         pagesoup = BeautifulSoup(response.text, "html.parser")
-    except requests.RequestException as requesterror:
-        logger.error(requesterror)
-        print(requesterror)
+    except requests.RequestException as e:
+        logger.error(e)
+        print(e)
         pagesoup = None
     
     if not pagesoup:
@@ -285,9 +285,9 @@ while currentpage <= 50:
                 "image": imageurl
             }
             albumsfromthispage.append(albuminfo)
-        except Exception as error:
-            logger.error(error)
-            print(error)
+        except Exception as e:
+            logger.error(e)
+            print(e)
     
     currentalbums.extend(albumsfromthispage)
     logger.info(f"Found {len(albumsfromthispage)} current albums on page {currentpage}")
@@ -308,6 +308,6 @@ try:
     
     logger.info("current data saved to kaggle/data/ directory")
     print("current data saved")
-except Exception as saveerror:
-    logger.error(saveerror)
-    print(saveerror)
+except Exception as e:
+    logger.error(e)
+    print(e)
